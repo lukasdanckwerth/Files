@@ -58,7 +58,7 @@ public extension Directory {
         }
     }
     
-    /// Removes and creates the dossier directory.
+    /// Removes and creates this `Directory`.
     @discardableResult
     func removeAndCreateDirectory() -> Bool {
         if #available(OSX 10.11, *) {
@@ -76,13 +76,5 @@ public extension Directory {
     /// Removes all files in the given directory ending with given extensions.
     func removeContents(withExtensions extensions: [String]) throws {
         try self.contents.filter({ extensions.contains($0.pathExtension) }).forEach({ try $0.remove() })
-    }
-    
-    func file(named name: String) -> File {
-        return File(at: fileURL.appendingPathComponent(name))
-    }
-    
-    func directory(named name: String) -> Directory {
-        return Directory(at: fileURL.appendingDirectoryComponent(name))
     }
 }
