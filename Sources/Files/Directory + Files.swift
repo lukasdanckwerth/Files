@@ -45,12 +45,12 @@ public extension Directory {
     }
     
     /// Returns `true` if a file with the given name exists in this directory.
-    public func containsFile(named filename: String) -> Bool {
+    func containsFile(named filename: String) -> Bool {
         return self.fileURL.appendingPathComponent(filename).exists
     }
     
     
-    public func toNonExistendFilename(_ filename: String) -> String {
+    func toNonExistendFilename(_ filename: String) -> String {
         guard !containsFile(named: filename) else { return filename }
         
         var index = 0
