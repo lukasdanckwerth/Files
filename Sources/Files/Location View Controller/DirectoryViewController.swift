@@ -67,7 +67,7 @@ public class DirectoryViewController: UITableViewController {
    }
    
    required public init() {
-      self.directory = DirectoryFile(at: .home)
+      self.directory = Directory(at: .home)
       if #available(iOS 13.0, *) {
          super.init(style: .insetGrouped)
       } else {
@@ -76,7 +76,7 @@ public class DirectoryViewController: UITableViewController {
    }
    
    required public init?(coder aDecoder: NSCoder) {
-      self.directory = DirectoryFile(at: .home)
+      self.directory = Directory(at: .home)
       super.init(coder: aDecoder)
    }
    

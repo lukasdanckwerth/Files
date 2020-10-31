@@ -34,11 +34,21 @@ open class JSONFile<JSONType: Codable>: ContentFile<JSONType> {
     open override func snapshot() -> Data? {
         // backup()
         let encoder = JSONEncoder()
+        
+        #if canImport(UIKit)
+        if #available(iOS 11.0, *) {
+            encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
+        } else {
+            encoder.outputFormatting = [.prettyPrinted]
+        }
+        #elseif canImport(AppKit)
         if #available(OSX 10.13, *) {
             encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
         } else {
             encoder.outputFormatting = [.prettyPrinted]
         }
+        #endif
+        
         return try? encoder.encode(value)
     }
 }

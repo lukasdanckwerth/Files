@@ -47,10 +47,10 @@ public extension DirectoryViewController {
       guard let contents = self.contents else { return nil }
       if contents.isEmpty == true {
          return NSLocalizedString("Empty", comment: "Empty Directory Footer")
-      } else if contents.amplitudesCount == 1 {
-         return "\(contents.amplitudesCount) \(NSLocalizedString("File", comment: ""))"
+      } else if contents.count == 1 {
+         return "\(contents.count) \(NSLocalizedString("File", comment: ""))"
       } else {
-         return "\(contents.amplitudesCount) \(NSLocalizedString("Files", comment: ""))"
+         return "\(contents.count) \(NSLocalizedString("Files", comment: ""))"
       }
    }
 }

@@ -31,7 +31,17 @@ public extension Location {
     // MARK: - Convenience
     // ===-----------------------------------------------------------------------------------------------------------===
     
+    /// Returns the `URL` of the enclosing directory.
+    var enclosingDirectoryURL: URL? {
+        let directoryURL = fileURL.deletingLastPathComponent()
+        return directoryURL.isDirectory ? directoryURL : nil
+    }
     
+    /// Returns the enclosing directory.
+    var enclosingDirectory: Directory? {
+        guard let directoryURL = enclosingDirectoryURL else { return nil }
+        return Directory(at: directoryURL)
+    }
     
     @discardableResult
     func backup() -> Bool {

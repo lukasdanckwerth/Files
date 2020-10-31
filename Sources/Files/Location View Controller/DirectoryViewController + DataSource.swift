@@ -12,7 +12,7 @@ import UIKit.UITableView
 public extension DirectoryViewController {
    
    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-      return contents?.amplitudesCount ?? 0
+      return contents?.count ?? 0
    }
    
    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
