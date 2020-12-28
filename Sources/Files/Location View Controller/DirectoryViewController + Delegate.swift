@@ -24,14 +24,14 @@ public extension DirectoryViewController {
          self.navigationController?.pushViewController(controller, animated: true)
       }
          
-      else if Constants.supportedTextfileExtensions.contains(where: { $0 == fileURL?.pathExtension }) {
+      else if Patterns.supportedTextfileExtensions.contains(where: { $0 == fileURL?.pathExtension }) {
          let content = try? String(contentsOf: directory.fileURL, encoding: .utf8)
          let controller = UITextViewController()
          controller.textView.text = content
          self.navigationController?.pushViewController(controller, animated: true)
       }
          
-      else if Constants.supportedImageFileExtensions.contains(where: { $0 == fileURL?.pathExtension }) {
+      else if Patterns.supportedImageFileExtensions.contains(where: { $0 == fileURL?.pathExtension }) {
          let image = UIImage(url: directory.fileURL)
          let controller = UIImageViewController(image: image)
          controller.title = directory.fileURL.filename

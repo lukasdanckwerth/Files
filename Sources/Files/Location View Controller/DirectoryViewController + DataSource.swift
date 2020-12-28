@@ -25,13 +25,13 @@ public extension DirectoryViewController {
          }
          cell.accessoryType = .disclosureIndicator
          cell.selectionStyle = .default
-      } else if Constants.supportedTextfileExtensions.contains(where: { $0 == file.pathExtension }) {
+      } else if Patterns.supportedTextfileExtensions.contains(where: { $0 == file.pathExtension }) {
          if #available(iOS 13.0, *) {
             cell.imageView?.image = UIImage(systemName: "doc")
          }
          cell.accessoryType = .disclosureIndicator
          cell.selectionStyle = .default
-      } else if Constants.supportedImageFileExtensions.contains(where: { $0 == file.pathExtension }) {
+      } else if Patterns.supportedImageFileExtensions.contains(where: { $0 == file.pathExtension }) {
          if #available(iOS 13.0, *) {
             cell.imageView?.image = UIImage(systemName: "photo")
          }
