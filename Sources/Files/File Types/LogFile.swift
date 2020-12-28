@@ -8,9 +8,9 @@
 
 import Foundation
 
-class LogFile: File {
+open class LogFile: File {
     
-    func log(_ message: String, terminator: String = "\n") {
+    open func log(_ message: String, terminator: String = "\n") {
         
         let fullMessage = message + terminator
         
