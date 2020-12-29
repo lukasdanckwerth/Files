@@ -45,7 +45,7 @@ public extension DirectoryViewController {
          cell.selectionStyle = .none
       }
       
-      cell.textLabel?.text = directory.filename
+      cell.textLabel?.text = directory.name
       cell.detailTextLabel?.text = directory.formattedSize
       
       return cell

@@ -16,8 +16,8 @@ extension Directory {
         return (try? fileManager.contentsOfDirectory(
             at: url,
             includingPropertiesForKeys: nil,
-            options: .skipsHiddenFiles)
-            ) ?? []
+            options: .skipsHiddenFiles
+        )) ?? []
     }
     
     /// Returns a Boolean value indicating whether the directory is empty

@@ -47,7 +47,7 @@ public class DirectoryViewController: UITableViewController {
    public var contents: [URL]?
    
    public var sort: ((URL, URL) -> Bool) = {
-      $0.filename < $1.filename
+      $0.name < $1.name
    }
    
    
@@ -90,7 +90,7 @@ public class DirectoryViewController: UITableViewController {
    override public func viewDidLoad() {
       super.viewDidLoad()
       
-      navigationItem.title = self.directory.filename
+      navigationItem.title = self.directory.name
       navigationItem.rightBarButtonItem = self.dismissButtonItem
       
       // table view

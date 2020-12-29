@@ -9,7 +9,7 @@
 import Foundation
 
 public protocol Location {
-   var url: URL { get }
+    var url: URL { get }
 }
 
 public extension Location {
@@ -22,14 +22,22 @@ public extension Location {
     
     /// Returns the name of the file represented by this `URL`.
     ///
-    var filename: String {
+    var name: String {
         return url.lastPathComponent
     }
     
     /// Returns WITHOUT extension the name of the file represented by this `URL`.
     ///
-    var filenameWithoutExtension: String {
+    var nameExcludingExtension: String {
         return url.deletingPathExtension().lastPathComponent
+    }
+    
+    /// Returns the extension of the file.
+    ///
+    var `extension`: String? {
+        let components = name.split(separator: ".")
+        guard components.count > 1 else { return nil }
+        return String(components.last!)
     }
     
     /// Returns a Boolean value indicating whether the file exists.
@@ -46,18 +54,6 @@ public extension Location {
         return isDirectory.boolValue
     }
     
-    /// Returns a path of the receiver relative to the given URL.
-    ///
-    /// - parameter baseURL: The URL which is removed from path.
-    /// - parameter replacement: The string used to replace the `baseURL`.
-    func relativePath(_ baseURL: URL = .home, replacement: String = "{APPLICATION_HOME}") -> String {
-        return url.relativePath.replacingOccurrences(of: baseURL.path, with: replacement)
-    }
-    
-    func relativTo(_ baseURL: URL = .mainApplicationURL, replacement: String = "..") -> String {
-        return url.relativePath.replacingOccurrences(of: baseURL.relativePath, with: replacement)
-    }
-    
     /// Returns the `URL` of the enclosing directory.
     ///
     var enclosingDirectoryURL: URL? {
@@ -72,33 +68,30 @@ public extension Location {
         return Directory(at: directoryURL)
     }
     
-    
-    @discardableResult func backup() -> Bool {
-        guard exists else {
-            return false
-        }
-        do {
-            try fileManager.backup(fileAt: url)
-            return true
-        } catch {
-            return false
-        }
+    /// Returns a path of the receiver relative to the given URL.
+    ///
+    /// - parameter baseURL: The URL which is removed from path.
+    /// - parameter replacement: The string used to replace the `baseURL`.
+    func relativTo(_ baseURL: URL = .mainApplicationURL, replacement: String = "...") -> String {
+        return url.relativePath.replacingOccurrences(of: baseURL.path, with: replacement)
     }
     
     /// Returns an alternative `URL` for the receiver IF the receiver already exist;  returns the receiver else
     ///
-    var toNonExistendFileURL: URL {
-        let pureName = self.filenameWithoutExtension
-        let theExtension = url.pathExtension
+    var nonExistendURL: URL {
+        let nameExcludingExtension = self.nameExcludingExtension
+        let theExtension = self.extension ?? ""
+        let directoryURL = url.deletingLastPathComponent()
         var index = 1
         var candidate = url
-        let directoryURL = candidate.deletingLastPathComponent()
+        
         while candidate.exists {
             candidate = directoryURL
-                .appendingPathComponent("\(pureName)_\(index)")
+                .appendingPathComponent("\(nameExcludingExtension)_\(index)")
                 .appendingPathExtension(theExtension)
             index += 1
         }
+        
         return candidate
     }
 }

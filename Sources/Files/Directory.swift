@@ -9,33 +9,25 @@
 import Foundation
 
 open class Directory: Location {
-   
-   public var url: URL
-   
-   required public init(at path: String) {
-      self.url = URL(fileURLWithPath: path)
-   }
-   
-   required public init(at url: URL) {
-      self.url = url
-   }
-   
-   required public init?(at directoryURL: URL, create: Bool) {
-      self.url = directoryURL
-      guard create else { return }
-      do {
-         try self.create()
-      } catch {
-         NSLog(error.localizedDescription)
-         return nil
-      }
-   }
-   
-   public var size: Int64 {
-      var size: Int64 = 0
-      for fileURL in self.contents {
-         size += fileURL.size
-      }
-      return size
-   }
+    
+    public var url: URL
+    
+    required public init(at path: String) {
+        self.url = URL(fileURLWithPath: path)
+    }
+    
+    required public init(at url: URL) {
+        self.url = url
+    }
+    
+    required public init?(at directoryURL: URL, create: Bool) {
+        self.url = directoryURL
+        guard create else { return }
+        do {
+            try self.create()
+        } catch {
+            NSLog(error.localizedDescription)
+            return nil
+        }
+    }
 }

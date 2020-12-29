@@ -16,7 +16,7 @@ public extension Location {
         guard self.exists else { return nil }
         var destinationURL = destinationURL
         if destinationURL.isDirectory {
-            destinationURL = destinationURL.appendingPathComponent(self.filename)
+            destinationURL = destinationURL.appendingPathComponent(self.name)
         }
         guard !destinationURL.exists else { return destinationURL }
         try fileManager.copyItem(at: self.url, to: destinationURL)
@@ -34,10 +34,10 @@ public extension Location {
     }
     
     @discardableResult func copy(to directory: Directory) throws -> URL? {
-        return try copy(to: directory.fileURL(filename: filename))
+        return try copy(to: directory.fileURL(filename: name))
     }
     
     @discardableResult func tryCopy(to directory: Directory) -> Bool {
-        return tryCopy(to: directory.fileURL(filename: filename))
+        return tryCopy(to: directory.fileURL(filename: name))
     }
 }

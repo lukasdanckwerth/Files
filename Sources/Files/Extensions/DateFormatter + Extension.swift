@@ -23,7 +23,7 @@ internal extension DateFormatter {
     
     /// With date format `"yyyy-MM-dd-HHmmss"`.
     ///
-    static let backupFilePrefix: DateFormatter = .from(dateFormat: "yyyy-MM-dd-HHmmss")
+    static let backupFilePrefix: DateFormatter = .from(dateFormat: "yyyy-MM-dd-HHmmssSSS")
     
     
     /// Convenient function to create a `DateFormatter` with the given date format.

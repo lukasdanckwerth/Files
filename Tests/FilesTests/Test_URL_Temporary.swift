@@ -8,7 +8,7 @@ final class Test_URL_Temporary: XCTestCase {
         XCTAssertEqual(temporaryURL.pathExtension, "my_extension")
         XCTAssertEqual(temporaryURL.enclosingDirectoryURL, URL.temporary)
         let lengthOfUUIDString = 36
-        XCTAssertEqual(temporaryURL.filenameWithoutExtension.count, lengthOfUUIDString)
+        XCTAssertEqual(temporaryURL.nameExcludingExtension.count, lengthOfUUIDString)
         XCTAssertFalse(temporaryURL.exists)
     }
     
@@ -17,7 +17,7 @@ final class Test_URL_Temporary: XCTestCase {
         XCTAssertEqual(temporaryURL.pathExtension, "my_extension")
         XCTAssertEqual(temporaryURL.enclosingDirectoryURL, URL.temporary)
         let lengthOfUUIDString = 36
-        XCTAssertEqual(temporaryURL.filenameWithoutExtension.count, lengthOfUUIDString)
+        XCTAssertEqual(temporaryURL.nameExcludingExtension.count, lengthOfUUIDString)
         XCTAssertFalse(temporaryURL.exists)
     }
     
@@ -26,7 +26,7 @@ final class Test_URL_Temporary: XCTestCase {
         XCTAssertEqual(temporaryURL.pathExtension, "")
         XCTAssertEqual(temporaryURL.enclosingDirectoryURL, URL.temporary)
         let lengthOfUUIDString = 36
-        XCTAssertEqual(temporaryURL.filenameWithoutExtension.count, lengthOfUUIDString)
+        XCTAssertEqual(temporaryURL.nameExcludingExtension.count, lengthOfUUIDString)
         XCTAssertFalse(temporaryURL.exists)
     }
     
@@ -34,7 +34,7 @@ final class Test_URL_Temporary: XCTestCase {
         let temporaryURL = try URL.temporaryDirectoryURL()
         XCTAssertEqual(temporaryURL.enclosingDirectoryURL, URL.temporary)
         let lengthOfUUIDString = 36
-        XCTAssertEqual(temporaryURL.filenameWithoutExtension.count, lengthOfUUIDString)
+        XCTAssertEqual(temporaryURL.nameExcludingExtension.count, lengthOfUUIDString)
         XCTAssertTrue(temporaryURL.exists)
         XCTAssertTrue(temporaryURL.isDirectory)
         try temporaryURL.remove()

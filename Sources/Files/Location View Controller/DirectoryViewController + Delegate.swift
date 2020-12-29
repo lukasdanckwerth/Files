@@ -34,13 +34,13 @@ public extension DirectoryViewController {
       else if Patterns.supportedImageFileExtensions.contains(where: { $0 == fileURL?.pathExtension }) {
          let image = UIImage(url: directory.url)
          let controller = UIImageViewController(image: image)
-         controller.title = directory.url.filename
+         controller.title = directory.url.name
          self.navigationController?.pushViewController(controller, animated: true)
       }
    }
    
    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-      return directory.url.filename
+      return directory.url.name
    }
    
    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {

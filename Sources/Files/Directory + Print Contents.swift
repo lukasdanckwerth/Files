@@ -49,10 +49,10 @@ extension Directory {
             
             if recursive, fileURL.hasDirectoryPath {
                 let directory = Directory(at: fileURL)
-                text += fileURL.filename + " (\(formattedDate))\n"
+                text += fileURL.name + " (\(formattedDate))\n"
                 text += formatContents(directory: directory, intend: intend + 1)
             } else {
-                text += fileURL.filename + " (\(formattedDate), \(fileURL.formattedSize))\n"
+                text += fileURL.name + " (\(formattedDate), \(fileURL.formattedSize))\n"
             }
             
             return text
@@ -69,7 +69,7 @@ extension Directory {
     @available(OSX 10.11, *)
     public func printContents(recursive: Bool = true) {
         print("""
-            Contents of "\(url.relativePath())"
+            Contents of "\(url.relativTo())"
             
             \(formatContents(recursive: recursive))
             """)
