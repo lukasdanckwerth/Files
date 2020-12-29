@@ -27,7 +27,7 @@ final class Test_Location_Copy: XCTestCase {
     }
     
     func test_tryCopy() throws {
-        let targetURL = temporaryTargetDirectory.file(named: location.name)
+        let targetURL = temporaryTargetDirectory.file(name: location.name)
         XCTAssertTrue(location.tryCopy(to: temporaryTargetDirectory.url))
         XCTAssertEqual(location.size, targetURL.size)
     }
@@ -39,7 +39,7 @@ final class Test_Location_Copy: XCTestCase {
     }
     
     func test_tryCopy_Directory() throws {
-        let targetURL = temporaryTargetDirectory.file(named: location.name)
+        let targetURL = temporaryTargetDirectory.file(name: location.name)
         XCTAssertTrue(location.tryCopy(to: temporaryTargetDirectory))
         XCTAssertEqual(location.size, targetURL.size)
     }

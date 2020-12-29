@@ -34,10 +34,10 @@ public extension Location {
     }
     
     @discardableResult func copy(to directory: Directory) throws -> URL? {
-        return try copy(to: directory.fileURL(filename: name))
+        return try copy(to: directory.fileURL(name: name))
     }
     
     @discardableResult func tryCopy(to directory: Directory) -> Bool {
-        return tryCopy(to: directory.fileURL(filename: name))
+        return tryCopy(to: directory.fileURL(name: name))
     }
 }

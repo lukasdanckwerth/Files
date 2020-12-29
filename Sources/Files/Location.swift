@@ -72,7 +72,7 @@ public extension Location {
     ///
     /// - parameter baseURL: The URL which is removed from path.
     /// - parameter replacement: The string used to replace the `baseURL`.
-    func relativTo(_ baseURL: URL = .mainApplicationURL, replacement: String = "...") -> String {
+    func relativeTo(_ baseURL: URL = .mainApplicationURL, replacement: String = "...") -> String {
         return url.relativePath.replacingOccurrences(of: baseURL.path, with: replacement)
     }
     

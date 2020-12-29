@@ -11,11 +11,14 @@ public extension Directory {
     
     /// Tries to create the directory.
     ///
-    func create(withIntermediateDirectories flag: Bool = true) throws {
+    func create(
+        withIntermediateDirectories flag: Bool = true,
+        attributes: [FileAttributeKey : Any]? = nil
+    ) throws {
         try fileManager.createDirectory(
             at: url,
             withIntermediateDirectories: flag,
-            attributes: [:]
+            attributes: attributes
         )
     }
     
@@ -31,9 +34,9 @@ public extension Directory {
         }
     }
     
-//    /// Creates the directory if it doesn't exist.
-//    ///
-//    @discardableResult func createIfNeeded() -> URL? {
-//        return fileManager.createDirectoryIfNotExists(url)
-//    }
+    //    /// Creates the directory if it doesn't exist.
+    //    ///
+    //    @discardableResult func createIfNeeded() -> URL? {
+    //        return fileManager.createDirectoryIfNotExists(url)
+    //    }
 }
