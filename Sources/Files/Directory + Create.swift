@@ -19,6 +19,8 @@ public extension Directory {
         )
     }
     
+    /// Tries to create the directory.
+    ///
     @discardableResult func tryCreate() -> Bool {
         do {
             try create()
@@ -29,9 +31,9 @@ public extension Directory {
         }
     }
     
-    /// Creates the directory if it doesn't exist.
-    ///
-    @discardableResult func createIfNeeded() -> URL? {
-        return fileManager.createDirectoryIfNotExists(url)
-    }
+//    /// Creates the directory if it doesn't exist.
+//    ///
+//    @discardableResult func createIfNeeded() -> URL? {
+//        return fileManager.createDirectoryIfNotExists(url)
+//    }
 }

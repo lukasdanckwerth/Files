@@ -124,14 +124,7 @@ public class DirectoryViewController: UITableViewController {
       }
    }
    
-   
-   
-   // ===-----------------------------------------------------------------------------------------------------------===
-   //
-   // MARK: - Constants
-   // ===-----------------------------------------------------------------------------------------------------------===
-   
-   internal struct Patterns {
+   internal struct Constants {
       static let supportedTextfileExtensions = [
          "txt",
          "log",

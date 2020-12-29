@@ -25,9 +25,9 @@ public extension DirectoryViewController {
       }
          
       else if Patterns.supportedTextfileExtensions.contains(where: { $0 == fileURL?.pathExtension }) {
-         let content = try? String(contentsOf: directory.url, encoding: .utf8)
+         let sampleData = try? String(contentsOf: directory.url, encoding: .utf8)
          let controller = UITextViewController()
-         controller.textView.text = content
+         controller.textView.text = sampleData
          self.navigationController?.pushViewController(controller, animated: true)
       }
          

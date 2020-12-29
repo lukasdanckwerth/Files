@@ -12,37 +12,37 @@ extension URL {
     /// Reference to the app's main directory (`"../"`)
     ///
     public static var mainApplicationURL: URL {
-        URL(fileURLWithPath: NSHomeDirectory(), isDirectory: true)
+        return URL(fileURLWithPath: NSHomeDirectory(), isDirectory: true)
     }
     
     /// Reference to the users home directory (`"~"`)
     ///
     public static var home: URL {
-        URL(fileURLWithPath: NSHomeDirectory(), isDirectory: true)
+        return URL(fileURLWithPath: NSHomeDirectory(), isDirectory: true)
     }
     
     /// Reference to the app's tmp directory (`"../tmp"`)
     ///
     public static var temporary: URL {
-        URL(fileURLWithPath: NSTemporaryDirectory())
+        return URL(fileURLWithPath: NSTemporaryDirectory())
     }
     
     /// Reference to the app's library directory (`"../Library"`)
     ///
     public static var library: URL {
-        FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask).first!
+        return FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask).first!
     }
     
     /// Reference to the app's library support directory (`"../Library/Application Support"`)
     ///
     public static var librarySupport: URL {
-        FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!
+        return FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!
     }
     
     /// Reference to the app's document directory (`"../Documents"`)
     ///
     public static var documentsDirectoryURL: URL {
-        FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
     }
     
     /// Reference to the app's preferences directory (`"../Library/Preferences"`)
