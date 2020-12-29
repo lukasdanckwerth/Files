@@ -90,7 +90,7 @@ public class DirectoryViewController: UITableViewController {
    override public func viewDidLoad() {
       super.viewDidLoad()
       
-      navigationItem.title = self.directory.fileURL.filename
+      navigationItem.title = self.directory.filename
       navigationItem.rightBarButtonItem = self.dismissButtonItem
       
       // table view

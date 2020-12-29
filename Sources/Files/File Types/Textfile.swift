@@ -16,7 +16,7 @@ import Foundation
 open class TextFile: ContentFile<String> {
     
     public override func read() -> String? {
-        return try? String(contentsOf: fileURL)
+        return try? String(contentsOf: url)
     }
     
     public override func snapshot() throws -> Data? {

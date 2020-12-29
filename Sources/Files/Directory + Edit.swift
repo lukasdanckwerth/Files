@@ -18,7 +18,7 @@ public extension Directory {
     /// Tries to create the directory.
     func create(withIntermediateDirectories flag: Bool = true) throws {
         try fileManager.createDirectory(
-            at: fileURL,
+            at: url,
             withIntermediateDirectories: flag,
             attributes: [:]
         )
@@ -38,7 +38,7 @@ public extension Directory {
     /// Creates the directory if it doesn't exist.
     @discardableResult
     func createIfNeeded() -> URL? {
-        return fileManager.createDirectoryIfNotExists(fileURL)
+        return fileManager.createDirectoryIfNotExists(url)
     }
     
     // ===-----------------------------------------------------------------------------------------------------------===
@@ -62,9 +62,9 @@ public extension Directory {
     @discardableResult
     func removeAndCreateDirectory() -> Bool {
         if #available(OSX 10.11, *) {
-            return fileURL.hasDirectoryPath && fileURL.removeIfNeeded() && self.tryCreate()
+            return url.hasDirectoryPath && url.removeIfNeeded() && self.tryCreate()
         } else {
-            return fileURL.removeIfNeeded() && self.tryCreate()
+            return url.removeIfNeeded() && self.tryCreate()
         }
     }
     

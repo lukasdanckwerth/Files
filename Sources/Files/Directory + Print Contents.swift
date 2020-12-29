@@ -77,7 +77,7 @@ extension Directory {
     @available(OSX 10.11, *)
     public func printContents(recursive: Bool = true) {
         print("""
-            Contents of "\(fileURL.relativePath())"
+            Contents of "\(url.relativePath())"
             
             \(formatContents(recursive: recursive))
             """)

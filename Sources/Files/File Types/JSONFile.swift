@@ -16,12 +16,12 @@ import Foundation
 open class JSONFile<JSONType: Codable>: ContentFile<JSONType> {
     
     open override func read() -> JSONType? {
-        guard fileManager.fileExists(atPath: fileURL.path) else {
+        guard fileManager.fileExists(atPath: url.path) else {
             return nil
         }
         
-        guard let data = try? Data(contentsOf: fileURL) else {
-            fatalError("can't read data: \(fileURL.path)")
+        guard let data = try? Data(contentsOf: url) else {
+            fatalError("can't read data: \(url.path)")
         }
         
         do {

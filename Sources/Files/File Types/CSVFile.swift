@@ -23,7 +23,7 @@ open class CSVFile: ContentFile<[[String]]> {
     }
     
     open override func read() -> [[String]]? {
-        guard let content = try? String(contentsOf: fileURL) else { return nil }
+        guard let content = try? String(contentsOf: url) else { return nil }
         let lines = content.components(separatedBy: self.newLine)
         let components: [[String]] = lines.compactMap({ $0.components(separatedBy: self.seperator) })
         return components

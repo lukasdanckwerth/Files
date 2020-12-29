@@ -10,31 +10,24 @@ import Foundation
 
 extension Directory {
     
-    // ===-----------------------------------------------------------------------------------------------------------===
-    //
-    // MARK: - Contents
-    // ===-----------------------------------------------------------------------------------------------------------===
-    
     /// Returns an array of `URL`s in the given directory.
+    ///
     public var contents: [URL] {
         return (try? fileManager.contentsOfDirectory(
-            at: self.fileURL,
+            at: url,
             includingPropertiesForKeys: nil,
             options: .skipsHiddenFiles)
             ) ?? []
     }
     
     /// Returns a Boolean value indicating whether the directory is empty
+    ///
     public var isEmpty: Bool {
         return contents.isEmpty
     }
     
-    // ===-----------------------------------------------------------------------------------------------------------===
-    //
-    // MARK: - Size
-    // ===-----------------------------------------------------------------------------------------------------------===
-    
     /// Returns the size of the folder at the given `URL` in bytes.  Size is calculated recursivly.
+    ///
     var recursiveSize: Int64 {
         return contents.reduce(Int64(0), {
             if $1.isDirectory {
@@ -46,6 +39,7 @@ extension Directory {
     }
     
     /// Returns a formatted string representing the size of the folder at the given `URL`.
+    ///
     var formattedRecursiveSize: String {
         return ByteCountFormatter().string(fromByteCount: self.recursiveSize)
     }

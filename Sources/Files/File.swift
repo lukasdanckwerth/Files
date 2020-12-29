@@ -8,20 +8,15 @@
 
 import Foundation
 
-// ===-----------------------------------------------------------------------------------------------------------===
-//
-// MARK: - `File`
-// ===-----------------------------------------------------------------------------------------------------------===
-
 open class File: Location {
     
-    open var fileURL: URL
+    public var url: URL
     
     public init(at path: String) {
-        self.fileURL = URL(fileURLWithPath: path)
+        self.url = URL(fileURLWithPath: path)
     }
     
     public init(at url: URL) {
-        self.fileURL = url
+        self.url = url
     }
 }

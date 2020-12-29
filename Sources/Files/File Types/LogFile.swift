@@ -18,21 +18,21 @@ open class LogFile: File {
             return NSLog("Can't receive data by enconding utf8 from log message: %@", message)
         }
         
-        if fileURL.exists {
+        if url.exists {
             do {
-                let fileHandle = try FileHandle(forWritingTo: fileURL)
+                let fileHandle = try FileHandle(forWritingTo: url)
                 fileHandle.seekToEndOfFile()
                 fileHandle.write(data)
                 fileHandle.closeFile()
             } catch {
-                return NSLog("Can't create FileHandle for log file: %@", fileURL.path)
+                return NSLog("Can't create FileHandle for log file: %@", url.path)
             }
         }
         else {
             do {
-                try data.write(to: fileURL, options: .atomic)
+                try data.write(to: url, options: .atomic)
             } catch {
-                return NSLog("Can't write data to log file: %@", fileURL.path)
+                return NSLog("Can't write data to log file: %@", url.path)
             }
         }
     }

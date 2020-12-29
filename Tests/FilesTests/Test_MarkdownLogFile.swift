@@ -4,12 +4,12 @@ import XCTest
 final class Test_MarkdownLogFile: XCTestCase {
     
     func test_afterAddingContent_fileExists() throws {
-        let url = URL.createTemporaryFileURL(withExtension: "log.md")
+        let url = URL.temporaryFileURL(withExtension: "log.md")
         let file = MarkdownLogFile(at: url)
         file.h1("Headline 1")
         file.h2("Headline 2")
         XCTAssertTrue(file.exists)
-        let content = try String(contentsOf: file.fileURL)
+        let content = try String(contentsOf: file.url)
         let lines = content.components(separatedBy: .newlines)
         XCTAssertTrue(lines[0] == "# Headline 1", "invalid line: \(lines[0])")
         XCTAssertTrue(lines[1] == "## Headline 2", "invalid line: \(lines[1])")

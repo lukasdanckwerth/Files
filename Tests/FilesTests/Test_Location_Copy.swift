@@ -1,7 +1,7 @@
 import XCTest
 @testable import Files
 
-final class Test_LogFile: XCTestCase {
+final class Test_Location_Copy: XCTestCase {
     
     func test_afterAddingContent_fileExists() throws {
         let url = URL.temporaryFileURL(withExtension: "log")

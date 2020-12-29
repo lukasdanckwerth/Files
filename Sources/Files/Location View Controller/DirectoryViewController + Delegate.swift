@@ -25,22 +25,22 @@ public extension DirectoryViewController {
       }
          
       else if Patterns.supportedTextfileExtensions.contains(where: { $0 == fileURL?.pathExtension }) {
-         let content = try? String(contentsOf: directory.fileURL, encoding: .utf8)
+         let content = try? String(contentsOf: directory.url, encoding: .utf8)
          let controller = UITextViewController()
          controller.textView.text = content
          self.navigationController?.pushViewController(controller, animated: true)
       }
          
       else if Patterns.supportedImageFileExtensions.contains(where: { $0 == fileURL?.pathExtension }) {
-         let image = UIImage(url: directory.fileURL)
+         let image = UIImage(url: directory.url)
          let controller = UIImageViewController(image: image)
-         controller.title = directory.fileURL.filename
+         controller.title = directory.url.filename
          self.navigationController?.pushViewController(controller, animated: true)
       }
    }
    
    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-      return directory.fileURL.filename
+      return directory.url.filename
    }
    
    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {

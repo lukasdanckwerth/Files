@@ -1,8 +1,9 @@
 //
-//  Codable + Write.swift
-//  
+//  Encodable + Convenience.swift
+//  Files
 //
-//  Created by Lukas Danckwerth on 30.08.20.
+//  Created by Lukas Danckwerth on 11.01.18.
+//  Copyright © 2018 WinValue. All rights reserved.
 //
 
 import Foundation
