@@ -10,12 +10,8 @@ import Foundation
 
 extension Directory {
     
-    // ===-----------------------------------------------------------------------------------------------------------===
-    //
-    // MARK: - Date Formatter
-    // ===-----------------------------------------------------------------------------------------------------------===
-    
     /// Date formatter used for formatting creation date of files when printing contents.
+    ///
     private static var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "en_US_POSIX")
@@ -24,19 +20,15 @@ extension Directory {
         return formatter
     }
     
-    
-    
-    // ===-----------------------------------------------------------------------------------------------------------===
-    //
-    // MARK: - Format Contents
-    // ===-----------------------------------------------------------------------------------------------------------===
-    
     /// Returns a string containing the file tree of the directory.
+    ///
     @available(OSX 10.11, *)
     public func formatContents(recursive: Bool = true) -> String {
         return formatContents(directory: self, recursive: recursive)
     }
     
+    ///
+    ///
     @available(OSX 10.11, *)
     private func formatContents(directory: Directory, recursive: Bool = true, intend: Int = 0) -> String {
         

@@ -62,9 +62,9 @@ public extension Directory {
     @discardableResult
     func removeAndCreateDirectory() -> Bool {
         if #available(OSX 10.11, *) {
-            return url.hasDirectoryPath && url.removeIfNeeded() && self.tryCreate()
+            return url.hasDirectoryPath && url.removeIfExists() && self.tryCreate()
         } else {
-            return url.removeIfNeeded() && self.tryCreate()
+            return url.removeIfExists() && self.tryCreate()
         }
     }
     
