@@ -33,7 +33,7 @@ extension Directory {
             if $1.isDirectory {
                 return $0 + Directory(at: $1).recursiveSize
             } else {
-                return $0 + Int64($1.size)
+                return $0 + $1.size
             }
         })
     }

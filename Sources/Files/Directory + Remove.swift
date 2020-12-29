@@ -1,6 +1,6 @@
 //
-//  Directory + Edit.swift
-//  FileKit
+//  Directory + Remove.swift
+//  Files
 //
 //  Created by Lukas Danckwerth on 21.03.20.
 //  Copyright © 2020 Lukas Danckwerth. All rights reserved.
@@ -9,32 +9,6 @@
 import Foundation
 
 public extension Directory {
-    
-    /// Tries to create the directory.
-    ///
-    func create(withIntermediateDirectories flag: Bool = true) throws {
-        try fileManager.createDirectory(
-            at: url,
-            withIntermediateDirectories: flag,
-            attributes: [:]
-        )
-    }
-    
-    @discardableResult func tryCreate() -> Bool {
-        do {
-            try create()
-            return true
-        } catch {
-            NSLog(error.localizedDescription)
-            return false
-        }
-    }
-    
-    /// Creates the directory if it doesn't exist.
-    ///
-    @discardableResult func createIfNeeded() -> URL? {
-        return fileManager.createDirectoryIfNotExists(url)
-    }
     
     /// Removes all files in the directory  (without throwing an error)
     @discardableResult
