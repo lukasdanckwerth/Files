@@ -7,19 +7,15 @@
 
 import Foundation
 
-fileprivate let backupDateFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateFormat = "yyyy-MM-dd-HH:mm:ss:SSS"
-    return formatter
-}()
-
 public extension Location {
     
     /// Returns an `URL` by appending an underscore and a backup date (`"yyyy-MM-dd-HHmmssSSS"`)
     /// to the receivers url.
     ///
     var backupURL: URL {
-        let backupDateString = backupDateFormatter.string(from: Date())
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd-HHmmss.SSS"
+        let backupDateString = formatter.string(from: Date())
         return enclosingDirectoryURL!.appendingFileComponent(
             "\(nameExcludingExtension)_\(backupDateString)",
             withExtension: self.extension ?? ""

@@ -34,9 +34,10 @@ public extension Directory {
         }
     }
     
-    //    /// Creates the directory if it doesn't exist.
-    //    ///
-    //    @discardableResult func createIfNeeded() -> URL? {
-    //        return fileManager.createDirectoryIfNotExists(url)
-    //    }
+    /// Creates the directory if it doesn't exist.
+    ///
+    func createIfNotExists() {
+        guard !exists else { return }
+        try? create()
+    }
 }
