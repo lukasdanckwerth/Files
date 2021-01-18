@@ -28,7 +28,7 @@ extension Directory {
     
     /// Returns the size of the folder at the given `URL` in bytes.  Size is calculated recursivly.
     ///
-    var recursiveSize: Int64 {
+    public var recursiveSize: Int64 {
         return contents.reduce(Int64(0), {
             if $1.isDirectory {
                 return $0 + Directory(at: $1).recursiveSize
@@ -40,7 +40,7 @@ extension Directory {
     
     /// Returns a formatted string representing the size of the folder at the given `URL`.
     ///
-    var formattedRecursiveSize: String {
+    public var formattedRecursiveSize: String {
         return ByteCountFormatter().string(fromByteCount: self.recursiveSize)
     }
 }

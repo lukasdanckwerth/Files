@@ -12,15 +12,15 @@ open class Directory: Location {
     
     public var url: URL
     
-    required public init(at path: String) {
+    public init(at path: String) {
         self.url = URL(fileURLWithPath: path)
     }
     
-    required public init(at url: URL) {
+    public init(at url: URL) {
         self.url = url
     }
     
-    required public init?(at directoryURL: URL, create: Bool) {
+    public init?(at directoryURL: URL, create: Bool) {
         self.url = directoryURL
         guard create else { return }
         do {
