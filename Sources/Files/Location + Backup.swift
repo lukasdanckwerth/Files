@@ -1,6 +1,6 @@
 //
 //  Location + Edit.swift
-//  
+//  Files
 //
 //  Created by Lukas on 02.08.20.
 //
@@ -9,8 +9,7 @@ import Foundation
 
 public extension Location {
     
-    /// Returns an `URL` by appending an underscore and a backup date (`"yyyy-MM-dd-HHmmssSSS"`)
-    /// to the receivers url.
+    /// Returns an `URL` by appending an underscore and a backup date (`"yyyy-MM-dd-HHmmssSSS"`) to the receivers url.
     ///
     var backupURL: URL {
         let formatter = DateFormatter()

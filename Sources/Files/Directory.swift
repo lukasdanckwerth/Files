@@ -1,9 +1,9 @@
 //
 //  Directory.swift
-//  UltraExpert-Go
+//  Files
 //
 //  Created by Lukas Danckwerth on 09.10.19.
-//  Copyright © 2019 WinValue. All rights reserved.
+//  Copyright © 2019 Lukas Danckwerth. All rights reserved.
 //
 
 import Foundation

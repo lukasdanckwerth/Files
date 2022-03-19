@@ -1,6 +1,6 @@
 //
 //  Location + Edit.swift
-//  
+//  Files
 //
 //  Created by Lukas on 02.08.20.
 //
@@ -9,8 +9,7 @@ import Foundation
 
 public extension Location {
     
-    /// Copies the receiver to the location in the given `URL`.  Will return the destination `URL` if it was copied
-    /// successfully or the file already exists.
+    /// Copies the receiver to the location in the given `URL`.  Will return the destination `URL` if it was copied successfully or the file already exists.
     ///
     @discardableResult func copy(to destinationURL: URL) throws -> URL? {
         guard self.exists else { return nil }

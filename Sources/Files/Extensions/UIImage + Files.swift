@@ -1,6 +1,6 @@
 //
 //  Extension UIImage.swift
-//  FileKit
+//  Files
 //
 //  Created by Lukas Danckwerth on 21.03.20.
 //  Copyright © 2020 Lukas Danckwerth. All rights reserved.
@@ -10,6 +10,7 @@
 import UIKit.UIImage
 
 public extension UIImage {
+    
     /// Creates a new instance from the image at the given `URL`.
     ///
     convenience init?(url: URL) {

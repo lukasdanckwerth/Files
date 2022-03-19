@@ -1,6 +1,6 @@
 //
 //  Directory + Print Contents.swift
-//  FileKit
+//  Files
 //
 //  Created by Lukas Danckwerth on 21.03.20.
 //  Copyright © 2020 Lukas Danckwerth. All rights reserved.

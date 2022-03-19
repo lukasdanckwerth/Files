@@ -1,21 +1,42 @@
 //
-//  Encodable + Representations.swift
+//  Encodable + Convenience.swift
 //  Files
 //
 //  Created by Lukas Danckwerth on 11.01.18.
-//  Copyright © 2018 WinValue. All rights reserved.
+//  Copyright © 2018 Lukas Danckwerth. All rights reserved.
 //
 
 import Foundation
 
 public extension Encodable {
     
+    /// Tries to write the `Encodable` to the specified `URL`.
+    ///
+    /// - parameter url: The `URL` to write the `Encodable` to as JSON
+    func write(to url: URL) throws {
+        try self.jsonData?.write(to: url, options: .atomic)
+    }
+    
+    /// Wrapps the `write(URL)` function in a do-try-catch block.
+    ///
+    /// - parameter url: The `URL` to write the `Encodable` to as JSON
+    ///
+    /// - returns: Success of writing the file
+    @discardableResult func tryWrite(to url: URL) -> Bool {
+        do {
+            try write(to: url)
+            return true
+        } catch {
+            return false
+        }
+    }
+    
     /// Returns a dictionary representation of the receiver.
     ///
     var dictionary: [String: Any]! {
         guard let data = try? JSONEncoder().encode(self) else { return nil }
         return (try? JSONSerialization.jsonObject(
-                    with: data, options: .allowFragments)
+            with: data, options: .allowFragments)
         ).flatMap { $0 as? [String: Any] }
     }
     

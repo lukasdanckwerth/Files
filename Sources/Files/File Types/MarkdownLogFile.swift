@@ -1,6 +1,6 @@
 //
 //  MarkdownLogFile.swift
-//  
+//  Files
 //
 //  Created by Lukas on 28.12.20.
 //

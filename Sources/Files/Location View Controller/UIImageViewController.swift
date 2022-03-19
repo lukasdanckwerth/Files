@@ -1,6 +1,6 @@
 //
 //  UIImageViewController.swift
-//  WinValueAutomarkt
+//  Files
 //
 //  Created by Lukas Danckwerth on 09.12.17.
 //
@@ -10,31 +10,32 @@ import UIKit
 
 public class UIImageViewController: UIViewController {
     
-    
     // MARK: - Properties
     
     /// The underlying image view of this image view controller.
+    ///
     open lazy var imageView = UIImageView()
-    
     
     // MARK: - Initialization
     
     /// Initialization with given image.
+    ///
     init(image: UIImage?) {
         super.init(nibName: nil, bundle: nil)
         imageView.image = image
     }
     
     /// Initialization from storyboard.
+    ///
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
     /// Initialization from given image name.
+    ///
     convenience init(imageName name: String?) {
         self.init(image: name != nil ? UIImage(named: name!) : nil)
     }
-    
     
     // MARK: - Override UIViewController
     

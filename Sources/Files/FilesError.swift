@@ -8,6 +8,7 @@
 import Foundation
 
 /// Error type thrown by all of Files' throwing APIs.
+///
 public struct FilesError<Reason>: Error {
     
     /// The `Location` that the error occured at.
@@ -24,6 +25,7 @@ public struct FilesError<Reason>: Error {
         self.reason = reason
     }
 }
+
 
 extension FilesError: CustomStringConvertible {
     public var description: String {

@@ -29,6 +29,7 @@ public extension Directory {
     }
     
     /// Removes all files in the directory  (without throwing an error)
+    ///
     @discardableResult func tryRemoveContents() -> Bool {
         do {
             try removeContents()

@@ -37,7 +37,6 @@ public extension Directory {
     /// Creates the directory if it doesn't exist.
     ///
     func createIfNotExists() {
-        guard !exists else { return }
-        try? create()
+        if !exists { try? create() }
     }
 }

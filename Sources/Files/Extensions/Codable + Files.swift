@@ -1,6 +1,6 @@
 //
-//  Codable + Read.swift
-//  
+//  Codable + Files.swift
+//  Files
 //
 //  Created by Lukas Danckwerth on 30.08.20.
 //

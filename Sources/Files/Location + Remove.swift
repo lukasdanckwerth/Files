@@ -1,6 +1,6 @@
 //
 //  Location + Edit.swift
-//  
+//  Files
 //
 //  Created by Lukas on 02.08.20.
 //
@@ -27,8 +27,7 @@ public extension Location {
         }
     }
     
-    /// Removes the file at the given `URL` only if it exists.  Returns `true` if given file does not exist or if it is
-    /// removed.  Returns `false` if the file exists and can not be removed.
+    /// Removes the file at the given `URL` only if it exists.  Returns `true` if given file does not exist or if it is removed.  Returns `false` if the file exists and can not be removed.
     ///
     @discardableResult func removeIfExists() -> Bool {
         guard self.exists else { return true }

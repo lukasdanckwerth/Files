@@ -21,7 +21,7 @@ final class Test_Location_Backup: XCTestCase {
         XCTAssertEqual(backupURL.extension, "my_extension")
         XCTAssertTrue(backupURL.nameExcludingExtension.hasPrefix(location.nameExcludingExtension))
         let dateSuffix = String(backupURL.nameExcludingExtension.dropFirst(location.nameExcludingExtension.count))
-        let dateSuffixLength = 24
+        let dateSuffixLength = 22
         XCTAssertEqual(dateSuffix.count, dateSuffixLength)
     }
     

@@ -1,17 +1,12 @@
 //
 //  Textfile.swift
-//  frc-framework
+//  Files
 //
 //  Created by Lukas Danckwerth on 30.06.20.
 //  Copyright © 2020 Lukas Danckwerth. All rights reserved.
 //
 
 import Foundation
-
-// ===-----------------------------------------------------------------------------------------------------------===
-//
-// MARK: - TextFile
-// ===-----------------------------------------------------------------------------------------------------------===
 
 open class TextFile: ContentFile<String> {
     
